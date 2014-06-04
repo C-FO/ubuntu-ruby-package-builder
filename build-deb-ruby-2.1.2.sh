@@ -1,16 +1,15 @@
 #!/bin/sh
 
-version=2.0.0
-patch=p353
-rubyversion=$version-$patch
+version=2.1.2
+rubyversion=$version
 rubysrc=ruby-$rubyversion.tar.bz2
-checksum=20eb8f067d20f6b76b7e16cce2a85a55
+checksum=ed9b8565bdeccb401d628ec8d54a0774
 destdir=/tmp/install-$rubyversion
 
 sudo apt-get -y install libssl-dev libreadline-dev zlib1g-dev libyaml-dev libgdbm-dev libffi-dev libncurses5-dev libxml2-dev libxslt1-dev automake libtool libc6-dev
 
 if [ ! -f $rubysrc ]; then
-    wget -q ftp://ftp.ruby-lang.org/pub/ruby/2.0/$rubysrc
+    wget -q ftp://ftp.ruby-lang.org/pub/ruby/2.1/$rubysrc
 fi
 
 if [ "$(md5sum $rubysrc | cut -b1-32)" != "$checksum" ]; then
